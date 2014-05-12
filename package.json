@@ -1,0 +1,32 @@
+{
+  "name": "tw-bj-library",
+  "version": "0.0.1",
+  "description": "TW BJ Library",
+  "scripts": {
+    "postinstall": "bower install",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lxdcn/tw-bj-library.git"
+  },
+  "author": "lxd <xdli@thoughtworks.com>",
+  "bugs": {
+    "url": "https://github.com/lxdcn/tw-bj-library/issues"
+  },
+  "homepage": "https://github.com/lxdcn/tw-bj-library",
+  "dependencies": {
+    "express": "~4.2.0",
+    "jade": "~1.3.1"
+  },
+  "devDependencies": {
+    "express": "~4.2.0",
+    "jade": "~1.3.1"
+    "superagent": "~0.18.0",
+    "expect.js": "~0.3.1",
+    "karma": "~0.12.16",
+    "mocha": "~1.18.2",
+    "karma-mocha": "~0.1.3",
+    "bower": "^1.3.3"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "tw-bj-library",
+  "version": "0.0.1",
+  "homepage": "https://github.com/lxdcn/tw-bj-library",
+  "authors": [
+    "lxd <xdli@thoughtworks.com>"
+  ],
+  "description": "TW BJ Library",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-mocks": "~1.2.15",
+    "bootstrap": "~3.1.1",
+    "angular-route": "~1.2.15",
+    "angular-resource": "~1.2.15",
+    "jquery": "1.10.2",
+    "angular-animate": "~1.2.15"
+  }
+}
