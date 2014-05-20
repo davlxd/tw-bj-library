@@ -1,7 +1,12 @@
-h2 Add a new book
-label(for='name') Name:
-input(ng-mode='form.name', name='name')
-p Body:
-  textarea(ng-model='form.events', cols='50', rows='15')
-p
-  button(ng-click='submitBook()') Submit book
+h2 Scan barcode to add a book
+label(for='isbn') 
+input.isbn(ng-model='form.isbn', ng-change='dataChanged()', name='isbn', autofocus)
+
+ul
+  li{{book.isbn}}
+  li{{book.title}}
+  li{{book.author}}
+  li{{book.douban_url}}
+  li{{book.holder}}
+
+script(src='js/autof5.js')

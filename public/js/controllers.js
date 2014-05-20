@@ -25,11 +25,17 @@ angular.module('myApp.controllers', []).
   }).
   controller('AddCtrl', function ($scope, $http, $location) {
     $scope.form = {};
-    $scope.submitBook = function () {
-      $http.post('/api/book', $scope.form).
-	success(function(data) {
-	  $location.path('/');
-	});
+    $scope.dataChanged = function () {
+      if ($scope.form.isbn.length === 13) {
+	$http.post('/api/isbn', $scope.form).
+	  success(function(data) {
+	    $scope.book = data
+	    //$location.url('/');
+	  });
+      }
+    };
+    $scope.titleFetched = function () {
+      console.log('fuck');
     };
   }).
   controller('DetailCtrl', function ($scope, $http, $routeParams) {
