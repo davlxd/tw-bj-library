@@ -17,7 +17,7 @@ var load = function() {
   data = JSON.parse(fs.readFileSync(data_file_name(), 'utf8'));
 }
 var save = function() {
-  fs.writeFile(data_file_name(), JSON.stringify(data), 'utf8');
+  fs.writeFile(data_file_name(), JSON.stringify(data, null, 2), 'utf8');
 }
 var sync = function() {
   Object.keys(data).length === 0 ? load() : save();
