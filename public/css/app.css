@@ -29,13 +29,13 @@
   padding: 0;
 }
 
-.contacts {
+.books {
   list-style: none;
   margin-bottom: 1em;
   padding: 0 0 0.5em;
 }
 
-div.contact-card {
+div.book-card {
   padding: 0.4em;
   border: 1px solid #DDDDDD;
   border-radius: 6px;
