@@ -29,7 +29,8 @@ angular.module('myApp.controllers', []).
       if ($scope.form.isbn.length === 13) {
 	$http.post('/api/isbn', $scope.form).
 	  success(function(data) {
-	    $scope.book = data
+	    $scope.book = data;
+	    $scope.form.isbn = '';
 	    //$location.url('/');
 	  });
       }
