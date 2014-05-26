@@ -74,19 +74,12 @@ exports.book = function (req, res) {
 };
 
 //POST
-exports.addBook = function(req, res) {
-  sync();
-  data.books.push(req.body);
-  res.json(data.books.length - 1);
-  sync();
-};
-
 
 //Here extract info we need
 realAddBook = function (json) {
   sync();
   var book = {};
-  
+
   book.isbn = json.isbn13;
   book.title = json.title;
   book.author = json.author;
@@ -119,29 +112,5 @@ exports.reqDouban = function(req, res) {
 
 
 //PUT
-exports.editBook = function(req, res) {
-  sync();
-  var id = req.params.id;
-  if (id >= 0 && id < data.books.length) {
-    data.books[id] = req.body;
-    res.json(true);
-
-  } else {
-    res.json(false);
-  }
-  sync();
-};
-
 
 //DELETE
-exports.deleteBook = function (req, res) {
-  sync();
-  var id = req.params.id;
-  if (id >=0 && id < data.books.length) {
-    data.books.splice(id, 1)
-    res.json(true);
-  } else {
-    res.json(false);
-  }
-  sync();
-};
