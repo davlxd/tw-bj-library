@@ -1,43 +1,9 @@
 /*
  * Serve JSON to our AngularJS client
  */
-var fs = require('fs');
-var path = require('path');
 var http = require('http');
+var booksjs = require('./books.js');
 
-
-var data = {};
-exports.inspect_data = function() {
-  return data;
-}
-
-var data_file_name = function() {
-  return __dirname + '/../tw-bj-books/data.json';
-}
-
-var load = function() {
-  try {
-    data = JSON.parse(fs.readFileSync(data_file_name(), 'utf8'));
-  } catch (e) {
-    console.log(e);
-    if (e.code === 'ENOENT' || e instanceof SyntaxError) {
-      data = {};
-    } else {
-      throw e;
-    }
-  }
-
-  if (data.books === undefined) {
-    data.books = []
-  }
-  
-}
-var save = function() {
-  fs.writeFile(data_file_name(), JSON.stringify(data, null, 2), 'utf8');
-}
-var sync = function() {
-  Object.keys(data).length === 0 ? load() : save();
-}
 
 exports.name = function (req, res) {
   res.json({
@@ -48,12 +14,14 @@ exports.name = function (req, res) {
 //GET
 exports.books = function (req, res) {
   //sync();
-  load();
+  booksjs.load();
   var books = [];
-    data.books.forEach(function (book, i) {
-      book.id = i;
-      books.push(book);
-    });
+  
+  for (var isbn in booksjs.data().books) {
+    var book = booksjs.data().books[isbn];
+    book.isbn = isbn;
+    books.push(book);
+  }
   res.json({
     books: books
   });
@@ -61,11 +29,11 @@ exports.books = function (req, res) {
 
 //GET
 exports.book = function (req, res) {
-  sync();
+  booksjs.sync();
   var id = req.params.id;
-  if (id >= 0 && id < data.books.length) {
+  if (id >= 0 && id < booksjs.data().books.length) {
     res.json({
-      book: data.books[id]
+      book: booksjs.data().books[id]
     });
 
   } else {
@@ -77,17 +45,16 @@ exports.book = function (req, res) {
 
 //Here extract info we need
 realAddBook = function (json) {
-  sync();
+  booksjs.sync();
   var book = {};
 
-  book.isbn = json.isbn13;
   book.title = json.title;
   book.author = json.author;
   book.holder = '';
   book.douban_url = json.alt;
-  
-  data.books.push(book);
-  sync();
+
+  booksjs.data().books[json.isbn13] = book;
+  booksjs.sync();
   
   return book;
 }
