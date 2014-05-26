@@ -5,6 +5,7 @@ var host = 'http://localhost:3000/'
 var books = [];
 var newly_created_book_id = 0;
 var books_after = [];
+var isbn_100Y_Solitude = '9787532706907';
 
 describe('GRUD test REST API /api/books', function(){
   it('first request all books should include previous post book', function(done){
@@ -18,7 +19,7 @@ describe('GRUD test REST API /api/books', function(){
 
   it('Add a book by POST ISBN(requesting douban API)', function(done){
     request.post(host + 'api/isbn')
-      .send({'isbn': '9787532706907'})
+      .send({'isbn': isbn_100Y_Solitude})
       .end(function(error, res){
 	expect(res.status).to.equal(200);
 	done();
@@ -27,7 +28,7 @@ describe('GRUD test REST API /api/books', function(){
 
   it('Add duplicate book by POST ISBN(requesting douban API)', function(done){
     request.post(host + 'api/isbn')
-      .send({'isbn': '9787532706907'})
+      .send({'isbn': isbn_100Y_Solitude})
       .end(function(error, res){
 	expect(res.status).to.equal(200);
 	done();
