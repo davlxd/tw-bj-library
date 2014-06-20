@@ -3,10 +3,7 @@ label(for='isbn')
 input.isbn(ng-model='form.isbn', ng-change='dataChanged()', name='isbn', autofocus)
 
 ul
-  li {{book.isbn}}
   li {{book.title}}
   li {{book.author}}
   li {{book.douban_url}}
   li {{book.holder}}
-
-script(src='js/autof5.js')

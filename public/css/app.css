@@ -40,6 +40,7 @@ div.book-card {
   border: 1px solid #DDDDDD;
   border-radius: 6px;
   margin: 0.4em;
+  display: inline-block;
 }
 
 

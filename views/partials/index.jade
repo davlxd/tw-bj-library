@@ -8,7 +8,6 @@ div
   ul.books
     li.book-line(ng-repeat='book in books | filter:query')
       div.book-card
-        {{book.name}}
-        {{book.familiarity}}
-        div.detail
-          {{book.events}}
+        a(href='{{book.douban_url}}', target='_blank') {{book.title}}
+        br
+        {{book.author}}
