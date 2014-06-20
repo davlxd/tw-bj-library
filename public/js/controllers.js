@@ -21,6 +21,13 @@ angular.module('myApp.controllers', []).
     $http.get('/api/books').
       success(function(data, status, headers, config) {
 	$scope.books = data.books;
+	$scope.books.forEach(function(el, idx, arr){
+	  var author_arr = el.author;
+	  var author_str = author_arr.reduce(function(prev, cur, idx, arr){
+	    return prev + ', ' + cur;
+	  });
+	  el.author = author_str;
+	});
       });
   }).
   controller('AddCtrl', function ($scope, $http, $location) {

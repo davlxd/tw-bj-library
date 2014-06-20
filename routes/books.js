@@ -36,7 +36,6 @@ var save = function() {
 }
 
 exports.sync = function() {
-  console.log(data);
   Object.keys(data).length === 0 ? load() : save();
 //  Object.keys(data).length === 0 ? load() : save();
 }

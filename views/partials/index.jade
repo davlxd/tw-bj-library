@@ -1,13 +1,10 @@
-h3 {{books.length}} books
-
 div
   | Filter: 
   input.filter(ng-model='query')
+br
 
 div
-  ul.books
-    li.book-line(ng-repeat='book in books | filter:query')
-      div.book-card
-        a(href='{{book.douban_url}}', target='_blank') {{book.title}}
-        br
-        {{book.author}}
+  div.book-card(ng-repeat='book in books | filter:query')
+    a(href='{{book.douban_url}}', target='_blank') {{book.title}}
+    br
+    {{book.author}}
