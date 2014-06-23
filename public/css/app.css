@@ -65,4 +65,16 @@ li.fields {
   display: inline;
 }
 
- 
+div.newly-add {
+  padding: 0.4em;
+  border: 1px solid #DDDDDD;
+  border-radius: 6px;
+  margin: 0.4em;
+  display: inline-block;
+  font-family:"Times New Roman", Times, serif;
+}
+
+ul.newly-add-entries {
+  list-style: none;
+  padding: 0 0 0.5em;
+}

@@ -2,8 +2,10 @@ h2 Scan barcode to add a book
 label(for='isbn') 
 input.isbn(ng-model='form.isbn', ng-change='dataChanged()', name='isbn', autofocus)
 
-ul
-  li {{book.title}}
-  li {{book.author}}
-  li {{book.douban_url}}
-  li {{book.holder}}
+br
+div.newly-add
+  ul.newly-add-entries
+    li {{book.title}}
+    li {{book.author}}
+    li {{book.douban_url}}
+    li {{book.holder}}

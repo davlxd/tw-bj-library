@@ -32,7 +32,7 @@ exports.load = function() {
 }
 
 var save = function() {
-  fs.writeFile(data_file_name(), JSON.stringify(data, null, 2), 'utf8');
+  fs.writeFileSync(data_file_name(), JSON.stringify(data, null, 2), 'utf8');
 }
 
 exports.sync = function() {
