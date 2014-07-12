@@ -2,7 +2,7 @@ var myAnimations = angular.module('myAnimations', [
   'ngAnimate'
 ]);
 
-myAnimations.animation('.newly-add', function() {
+myAnimations.animation('.book-card', function() {
     var animateUp = function(element, className, done) {
       if(className != 'expand') {
 	return ;
@@ -20,7 +20,6 @@ myAnimations.animation('.newly-add', function() {
       };
     }
     var animateDown = function(element, className, done) {
-      console.log('.book-card'  + element);
       if(className != 'expand') {
 	return;
       }
@@ -44,47 +43,3 @@ myAnimations.animation('.newly-add', function() {
       removeClass: animateDown
     };
   });
-
-myAnimations.animation('.detail', function() {
-  console.log('.detail general');
-    var animateUp = function(element, className, done) {
-      console.log('.detail'  + element);
-      if(className != 'active') {
-	return;
-      }
-      if(jQuery(element).is(":animated")) {
-      	return ;
-      }
-      jQuery(element).show(200);
-
-      return function(cancel) {
-      	if(cancel) {
-      	  element.stop();
-//    	  element.hide(200);
-      	}
-      };
-    }
-    var animateDown = function(element, className, done) {
-      console.log('.detail'  + element);
-      if(className != 'active') {
-	return;
-      }
-      if(jQuery(element).is(":animated")) {
-      	return ;
-      }
-      jQuery(element).hide(200);
-
-      return function(cancel) {
-	if(cancel) {
-	  element.stop();
-	  element.hide(200);
-	}
-      };
-    }
-
-    return {
-      addClass: animateUp,
-      removeClass: animateDown
-    };
-  });
-
