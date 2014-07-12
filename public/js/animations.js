@@ -2,9 +2,8 @@ var myAnimations = angular.module('myAnimations', [
   'ngAnimate'
 ]);
 
-myAnimations.animation('.book-card', function() {
+myAnimations.animation('.newly-add', function() {
     var animateUp = function(element, className, done) {
-      console.log('.book-card'  + element);
       if(className != 'expand') {
 	return ;
       }

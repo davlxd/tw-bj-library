@@ -37,6 +37,10 @@ angular.module('myApp.controllers', []).
 	$http.post('/api/isbn', $scope.form).
 	  success(function(data) {
 	    $scope.book = data;
+	    var author_arr = $scope.book.author;
+	    $scope.book.author = author_arr.reduce(function(prev, cur, idx, arr){
+	      return prev + ', ' + cur;
+	    });
 	    $scope.form.isbn = '';
 	    //$location.url('/');
 	  });
