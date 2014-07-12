@@ -78,3 +78,7 @@ ul.newly-add-entries {
   list-style: none;
   padding: 0 0 0.5em;
 }
+
+span.author{
+  font-size: 12px;
+}

@@ -5,6 +5,8 @@ br
 
 div
   div.book-card(ng-repeat='book in books | filter:query')
-    a(href='{{book.douban_url}}', target='_blank') {{book.title}}
+    span.title
+      a(href='{{book.douban_url}}', target='_blank') {{book.title}}
     br
-    {{book.author}}
+    span.author
+      {{book.author}}
