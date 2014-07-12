@@ -50,6 +50,7 @@ h1 {
 }
 
 div.book-card {
+  cursor: pointer;
   padding: 0.4em;
   border: 1px solid #DDDDDD;
   border-radius: 6px;
@@ -57,6 +58,14 @@ div.book-card {
   display: inline-block;
   box-shadow: 2px 2px 10px #AAAAAA;
   font-family:"Times New Roman", Times, serif;
+  transition:background-color 0.5s;
+  -moz-transition:background-color 0.5s;
+  -webkit-transition:background-color 0.5s;
+  -o-transition:background-color 0.5s;
+}
+
+div.book-card:hover {
+  background-color: #E6E6E6;
 }
 
 
