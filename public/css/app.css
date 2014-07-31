@@ -93,3 +93,9 @@ ul.newly-add-entries {
 span.author{
   font-size: 12px;
 }
+
+
+/* Override bootstrap css */
+.modal-dialog {
+  margin: 200px auto;
+}
