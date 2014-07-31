@@ -8,11 +8,13 @@ a:hover {
 }
 body {
   font-family: 'Audiowide', cursive;
+  margin: 8px;
 }
 
 h1 {
   font-family: 'Great Vibes', cursive;
-  color: #886A08;
+  font-size: 60px;
+  color: #000000;
 }
 .menu {
   list-style: none;
