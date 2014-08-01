@@ -63,6 +63,7 @@ realAddBook = function (json) {
 //Request Douban API
 exports.reqDouban = function(req, res) {
   var url = 'http://api.douban.com/v2/book/isbn/' + req.body.isbn;
+  console.log(url);
   http.get(url, function(response) {
     var js = '';
     response.on('data', function(chunk) {
