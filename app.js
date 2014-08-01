@@ -55,7 +55,7 @@ app.get('/api/books', api.books);
 app.get('/api/book/:id', api.book);
 //app.post('/api/book', api.addBook);
 app.post('/api/isbn', api.reqDouban);
-app.put('/api/book/:id', api.editBook);
+app.put('/api/book/:isbn', api.editBook);
 //app.delete('/api/book/:id', api.deleteBook);
 
 // redirect all others to the index (HTML5 history)

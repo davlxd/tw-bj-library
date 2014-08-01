@@ -81,15 +81,11 @@ exports.reqDouban = function(req, res) {
 //PUT
 exports.editBook = function (req, res) {
   booksjs.sync();
-  var id = req.params.id;
-  if (id >= 0 && id < booksjs.data().books.length) {
-    res.json({
-      book: booksjs.data().books[id]
-    });
+  var isbn = req.params.isbn;
 
-  } else {
-    res.json(false);
-  }
+  booksjs.data().books[isbn] = req.body;
+  booksjs.sync();
+  res.json(req.body);
 };
 
 

@@ -82,7 +82,7 @@ angular.module('myApp.controllers', []).
 	});
     };
   }).
-  controller('ModalDemoCtrl', function($scope, $modal, $log) {
+  controller('ModalDemoCtrl', function($scope, $modal, $http) {
     
     $scope.open = function (book) {
       var modalInstance = $modal.open({
@@ -97,11 +97,13 @@ angular.module('myApp.controllers', []).
       });
 
       modalInstance.result.then(function (book) {
+	$http.put('/api/book/' + book.isbn, book).
+	  success(function(data) {
+	    console.log('>>>>>>>>>>' + data);
+	  });
 	
-	console.log('new book');
-	console.log(book);
-
       }, function () {
+
       });
     };
   }).
