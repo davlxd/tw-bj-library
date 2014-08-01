@@ -78,7 +78,7 @@ div.book-card {
 }
 
 div.book-card:hover {
-  background-color: #E6E6E6;
+  background-color: #D0D0D0;
 }
 
 
@@ -112,6 +112,10 @@ span.author{
 
 .book-dialog li {
  margin: 0 0 10px 0;
+}
+
+.holded {
+  background-color: #E0E0E0;
 }
 
 
