@@ -79,5 +79,18 @@ exports.reqDouban = function(req, res) {
 
 
 //PUT
+exports.editBook = function (req, res) {
+  booksjs.sync();
+  var id = req.params.id;
+  if (id >= 0 && id < booksjs.data().books.length) {
+    res.json({
+      book: booksjs.data().books[id]
+    });
+
+  } else {
+    res.json(false);
+  }
+};
+
 
 //DELETE

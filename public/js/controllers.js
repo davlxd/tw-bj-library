@@ -2,15 +2,11 @@
 
 /* Controllers */
 
-var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
-
-  $scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };
+var ModalInstanceCtrl = function ($scope, $modalInstance, book) {
+  $scope.book = book;
 
   $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
+    $modalInstance.close($scope.book);
   };
 
   $scope.cancel = function () {
@@ -87,25 +83,25 @@ angular.module('myApp.controllers', []).
     };
   }).
   controller('ModalDemoCtrl', function($scope, $modal, $log) {
-    $scope.items = ['item1', 'item2', 'item3'];
-
-    $scope.open = function (size) {
-      console.log($scope);
+    
+    $scope.open = function (book) {
       var modalInstance = $modal.open({
 	templateUrl: 'myModalContent.html',
 	controller: ModalInstanceCtrl,
-	size: size,
+//	size: size,
 	resolve: {
-          items: function () {
-            return $scope.items;
+          book: function () {
+            return book;
           }
 	}
       });
 
-      modalInstance.result.then(function (selectedItem) {
-	$scope.selected = selectedItem;
+      modalInstance.result.then(function (book) {
+	
+	console.log('new book');
+	console.log(book);
+
       }, function () {
-	$log.info('Modal dismissed at: ' + new Date());
       });
     };
   }).

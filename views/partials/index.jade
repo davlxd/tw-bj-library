@@ -6,13 +6,19 @@ br
 div(ng-controller='ModalDemoCtrl')
   script(type='text/ng-template', id='myModalContent.html')
     div.modal-header
-      h3.modal-title asdf
+      h3.modal-title {{book.title}}
     div.modal-body
+      ul.book-dialog
+        li
+          a(href='{{book.douban_url}}', target='_blank'){{book.author}}
+        li
+          | Holder: &nbsp;
+          input(type='text', name='holder', ng-model='book.holder')
     div.modal-footer
-  botton(ng-click='open()')
-    asdf
+      button.btn.btn-primary(ng-click='ok()') OK
+      button.btn.btn-warning(ng-click='cancel()') Cancel
 
-  div.book-card(ng-repeat='book in books | filter:query', ng-click='open()')
+  div.book-card(ng-repeat='book in books | filter:query', ng-click='open(book)')
     span.title
       a(href='{{book.douban_url}}', target='_blank') {{book.title}}
     br

@@ -95,7 +95,19 @@ span.author{
 }
 
 
+.book-dialog {
+  list-style: none;
+}
+
+.book-dialog li {
+ margin: 0 0 10px 0;
+}
+
+
 /* Override bootstrap css */
 .modal-dialog {
   margin: 200px auto;
+  font-family: "Times New Roman",Times,serif;
 }
+
+
