@@ -79,11 +79,11 @@ exports.reqDouban = function(req, res) {
 
 
 //PUT
-exports.editBook = function (req, res) {
+exports.editBookHolder = function (req, res) {
   booksjs.sync();
   var isbn = req.params.isbn;
 
-  booksjs.data().books[isbn] = req.body;
+  booksjs.data().books[isbn].holder = req.body.holder;
   booksjs.sync();
   res.json(req.body);
 };
